@@ -42,7 +42,7 @@
 								<h4>Nova tarefa</h4>
 								<hr />
 
-								<form method="post" action="http://127.0.0.1/lista_tarefas/tarefa_controller.php">
+								<form method="post" action="http://127.0.0.1/lista_tarefas/tarefa_controller.php?acao=inserir">
 									<div class="form-group">
 										<label>Descrição da tarefa:</label>
 										<input type="text" name="tarefa" class="form-control" placeholder="Exemplo: Lavar o carro">
