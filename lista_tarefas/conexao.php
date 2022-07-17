@@ -1,20 +1,29 @@
 <?php
 
-    private $host = 'localhost';
-    private $dbname = 'php_com_pdo';
-    private $user = 'root';
-    private $pass = '';
+    class Conexao {
 
-    public function conectar()
-    {
-        try 
+        private $host = 'localhost';
+        private $dbname = 'php_com_pdo';
+        private $user = 'root';
+        private $pass = '';
+
+        public function conectar()
         {
-        
-        }catch (\Throwable $th) 
-        {
-        
+            try 
+            {
+                $conexao = new PDO(
+                    "mysql:host=$this->host; dbname=$this->dbname",
+                    "$this->user",
+                    "$this->pass"
+                );
+
+                return $conexao;
+            
+            }catch (PDOException $error) 
+            {
+                echo $error;
+            }
         }
+
     }
-
-
 ?>
