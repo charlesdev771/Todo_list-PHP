@@ -18,5 +18,7 @@
     $tarefaService = new TarefaService($conexao,$tarefa);
     $tarefaService->inserir();
 
+    header('Location: http://127.0.0.1/lista_tarefas_public/?inclusao=0');
+
 
 ?>
