@@ -51,6 +51,15 @@
 
     }
 
+    else ($acao == 'recuperarTarefasPendentes')
+    {
+        $tarefa = new Tarefa();
+        $tarefa->__set('id_status', 1);
+        $conexao = new Conexao();
+
+        $tarefaService = new TarefaService();
+        $tarefas = $tarefaService->recuperarTarefasPendentes();
+    }
 
 
 

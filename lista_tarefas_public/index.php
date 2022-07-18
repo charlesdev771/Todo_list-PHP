@@ -1,3 +1,10 @@
+<?php
+
+	$acao = 'recupearTarefasPendentes';
+	require 'tarefa_controller.php';
+
+?>
+
 <html>
 	<head>
 		<meta charset="utf-8" />
