@@ -4,11 +4,9 @@
     require "../lista_tarefas/tarefa.service.php";
     require "../lista_tarefas/conexao.php";
 
-    echo '<pre>';
-    print_r($_POST);
-    echo '</pre>';
 
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
+    print($acao);
 
     if($acao == 'inserir')
     {
@@ -29,8 +27,29 @@
         $conexao = new Conexao();
         $tarefaService = new TarefaService($conexao, $tarefa);
         $tarefas = $tarefaService->recuperar();
-    }
+    } else if ($acao == 'atualizar')
+    {
+        $tarefa = new Tarefa();
+        $tarefa->__set('id', $_POST['id']);
+        $tarefa->__set('tarefa', $_POST['tarefa']);
 
+        $conexao = new Conexao();
+        $tarefaService = new TarefaService($conexao, $tarefa);
+        
+        if ($tarefaService->atualizar()) 
+        {
+            header('Location: nova_tarefa.php');
+        }
+    }else if ($acao == 'remover')
+    {
+        $tarefa = new Tarefa();
+        $tarefa->__set('id', $_GET['id']);
+        $conexao = new Conexao();
+        $tarefaService = new TarefaService($conexao, $tarefa);
+        $tarefaService->remover();
+        header('Location: nova_tarefa.php');
+
+    }
 
 
 
