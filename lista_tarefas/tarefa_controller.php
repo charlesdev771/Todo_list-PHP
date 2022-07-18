@@ -25,7 +25,10 @@
     }
     else if($acao == 'recuperar')
     {
-        echo 'Chegamos';
+        $tarefa = new Tarefa();
+        $conexao = new Conexao();
+        $tarefaService = new TarefaService($conexao, $tarefa);
+        $tarefas = $tarefaService->recuperar();
     }
 
 
